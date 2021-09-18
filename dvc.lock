@@ -14,18 +14,18 @@ stages:
       size: 2659
     params:
       params.yaml:
-        prepare.split: 0.2
+        prepare.split: 0.3
     outs:
     - path: prepared
-      md5: 4ee4a8787403fc39ab2f2b1c6dbc35f2.dir
+      md5: f1ff1f45b27b91a78dd8968f00db11f6.dir
       size: 35651
       nfiles: 3
   train:
     cmd: python src/train.py prepared/out_train.csv model.pkl
     deps:
     - path: prepared/out_train.csv
-      md5: c37900625ff864acefb9010e7b2ef905
-      size: 19635
+      md5: a668dd163481f281b56c4ae465093532
+      size: 17196
     - path: src/train.py
       md5: b79a090ea6550d3577434588255ffe45
       size: 578
@@ -34,7 +34,7 @@ stages:
         train.alpha: 0.1
     outs:
     - path: model.pkl
-      md5: 19c343e08d453edf7e98f54d0c6561b2
+      md5: f54d66aa463f74af17d0460223857e23
       size: 931
   evaluate:
     cmd: python src/evaluate.py model.pkl prepared/out_validation.csv prepared/out_test.csv
