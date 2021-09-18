@@ -1,4 +1,4 @@
 prepare:
-  split: 0.20
+  split: 0.30
 train:
   alpha: 0.1
